@@ -13,7 +13,7 @@ class MainWindow(QMainWindow):
         self.setWindowFlags(Qt.FramelessWindowHint)
         
         current_directory = os.path.dirname(os.path.abspath(__file__))
-        icons_directory = os.path.join(current_directory, "..", "Resources", "Icons")
+        icons_directory = os.path.join(current_directory, "Resources", "Icons")
         
         screen_size = QDesktopWidget().screenGeometry().size()
         
