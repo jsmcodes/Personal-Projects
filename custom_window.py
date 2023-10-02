@@ -3,7 +3,6 @@ from PyQt5.QtCore import Qt, QPoint
 from PyQt5.QtGui import QIcon
 
 import sys
-import os
 
 from Resources.Icons import icons_rc
 
@@ -11,9 +10,6 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowFlags(Qt.FramelessWindowHint)
-        
-        current_directory = os.path.dirname(os.path.abspath(__file__))
-        icons_directory = os.path.join(current_directory, "Resources", "Icons")
         
         screen_size = QDesktopWidget().screenGeometry().size()
         
@@ -42,9 +38,8 @@ class MainWindow(QMainWindow):
         window_layout.setSpacing(0)
         window_layout.setContentsMargins(0, 0, 0, 0)
         
-        window_icon = QIcon(os.path.join(icons_directory, "cart.svg"))
         window_logo = QPushButton(self.window_widget)
-        window_logo.setIcon(window_icon)
+        window_logo.setIcon(QIcon("Resources/Icons/cart.svg"))
         window_logo.setStyleSheet("""
             border: none;
         """)
@@ -55,27 +50,24 @@ class MainWindow(QMainWindow):
         window_title.setAlignment(Qt.AlignCenter)
         window_layout.addWidget(window_title)
         
-        minimize_icon = QIcon(os.path.join(icons_directory, "minimize.svg"))
         minimize_button = QPushButton(self.window_widget)
-        minimize_button.setIcon(minimize_icon)
+        minimize_button.setIcon(QIcon("Resources/Icons/minimize.svg"))
         minimize_button.setStyleSheet("""
             border: none;
         """)
         minimize_button.clicked.connect(self.minimizeWindow)
         window_layout.addWidget(minimize_button)
         
-        maximize_icon = QIcon(os.path.join(icons_directory, "maximize.svg"))
         maximize_button = QPushButton(self.window_widget)
-        maximize_button.setIcon(maximize_icon)
+        maximize_button.setIcon(QIcon("Resources/Icons/maximize.svg"))
         maximize_button.setStyleSheet("""
             border: none;
         """)
         maximize_button.clicked.connect(self.maximizeWindow)
         window_layout.addWidget(maximize_button)
         
-        close_icon = QIcon(os.path.join(icons_directory, "close.svg"))
         close_button = QPushButton(self.window_widget)
-        close_button.setIcon(close_icon)
+        close_button.setIcon(QIcon("Resources/Icons/close.svg"))
         close_button.setStyleSheet("""
             border: none;
         """)
